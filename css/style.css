@@ -1,0 +1,35 @@
+body {
+  background-color: #EBECEE;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.cabecalho__container {
+  display: flex;
+  align-items: center;
+}
+.cabecalho__container--imagem {
+  padding: 1em;
+}
+.cabecalho__container--botao:checked ~ .cabecalho__lista {
+  display: block;
+}
+.cabecalho__menu {
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/Menu.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+.cabecalho__lista {
+  display: none;
+  position: absolute;
+  top: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

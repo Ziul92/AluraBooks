@@ -1,0 +1,46 @@
+$cor-de-fundo: #EBECEE;
+
+
+body {
+    background-color: $cor-de-fundo;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    
+    &__container {
+        display: flex;
+        align-items: center;
+
+
+        &--imagem {
+            padding: 1em;
+        }
+
+        &--botao {
+
+            &:checked~.cabecalho__lista {
+                display: block;
+            }
+        }
+    }
+    
+    &__menu {
+        width: 24px;
+        height: 24px;
+        background-image: url(../img/Menu.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+    }
+
+    &__lista {
+        display: none;
+        position: absolute;
+        top: 100%;
+    }
+}
