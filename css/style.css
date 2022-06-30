@@ -1,5 +1,6 @@
 body {
   background-color: #EBECEE;
+  font-family: "Poppins";
 }
 
 .cabecalho {
@@ -14,6 +15,9 @@ body {
 }
 .cabecalho__container--imagem {
   padding: 1em;
+}
+.cabecalho__container--botao {
+  display: none;
 }
 .cabecalho__container--botao:checked ~ .cabecalho__lista {
   display: block;
@@ -30,6 +34,69 @@ body {
   display: none;
   position: absolute;
   top: 100%;
+  background-color: #FFFFFF;
+  width: 60vw;
+}
+.cabecalho__lista--titulo {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #EB9B00;
+  padding: 1em;
+}
+.cabecalho__lista--item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 1em;
+}
+.cabecalho__lista--links {
+  background: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.banner {
+  background: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 2em;
+}
+.banner__titulo {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+}
+.banner__texto {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 0.8em 0;
+}
+.banner__pesquisa {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  background: transparent;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 0.8em 0 0.8em 0.8em;
+  border: 1px solid #FFFFFF;
+  border-radius: 30px;
+  margin: 0.5em 0;
+}
+.banner__pesquisa::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  padding: 1em;
+  color: #FFFFFF;
+  text-align: center;
+  background: url("../img/Lupa.svg") no-repeat;
+  background-position: 2.5em;
 }
 
 /*# sourceMappingURL=style.css.map */

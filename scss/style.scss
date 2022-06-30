@@ -1,14 +1,30 @@
 $cor-de-fundo: #EBECEE;
+$cor-laranja: #EB9B00;
+$cor-branco: #FFFFFF;
+$fonte-poppins: "Poppins";
+$azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+
+
+@mixin texto($size, $weight, $height) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+}
+
+@mixin flex($espaço) {
+    display: flex;
+    justify-content: $espaço;
+    align-items: center;
+}
 
 
 body {
     background-color: $cor-de-fundo;
+    font-family: $fonte-poppins;
 }
 
 .cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(space-between);
     position: relative;
 
     
@@ -22,6 +38,7 @@ body {
         }
 
         &--botao {
+            display: none;
 
             &:checked~.cabecalho__lista {
                 display: block;
@@ -42,5 +59,65 @@ body {
         display: none;
         position: absolute;
         top: 100%;
+        background-color: $cor-branco;
+        width: 60vw;
+
+
+        &--titulo {
+            @include texto(16px,700,24px);
+            color: $cor-laranja;
+            padding: 1em;
+        }
+
+        &--item {
+            @include texto(16px,400,24px);
+            padding: 1em;
+        }
+
+        &--links {
+            background: $azul-degrade;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.banner {
+    background: $azul-degrade;
+    color: $cor-branco;
+    text-align: center;
+    padding: 2em;
+
+    &__titulo {
+        @include texto(18px,700,27px);
+    }
+
+    &__texto {
+        @include texto(16px,500,24px);
+        padding: 0.8em 0;
+    }
+
+    &__pesquisa {
+        @include texto(14px,400,21px);
+        background: transparent;
+        color: $cor-branco;
+        width: 100%;
+        padding: 0.8em 0 0.8em 0.8em;
+        border: 1px solid $cor-branco;
+        border-radius: 30px;
+        margin: 0.5em 0;
+
+
+        &::placeholder {
+            @include texto(14px,400,21px);
+            padding: 1em;
+            color: $cor-branco;
+            text-align: center;
+            background: url("../img/Lupa.svg") no-repeat;
+            background-position: 2.5em;
+        }
     }
 }
