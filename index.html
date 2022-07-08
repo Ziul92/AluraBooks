@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/style.css">
 
     <title>AluraBooks</title>
@@ -46,6 +47,142 @@
       <p class="banner__texto">Encontre em nossa estante o que precisa para seu desenvolvimento!</p>
       <input type="text" class="banner__pesquisa" placeholder="Qual será sua próxima leitura?">
     </section>
+
+    <section class="carrossel">
+      <h3 class="carrossel__titulo">Últimos lançamentos</h3>
+
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-wrapper">
+              <!-- Slides -->
+          <div class="swiper-slide"><img src="img/Acessibilidade.svg" alt="Livro sobre Acessibilidade"></div>
+          <div class="swiper-slide"><img src="img/Guia Front-end.svg" alt="Livro sobre Front-End"></div>
+          <div class="swiper-slide"><img src="img/Javascript.svg" alt="Livro sobre Javascript"></div>
+          <div class="swiper-slide"><img src="img/Arquitetura.svg" alt="Livro sobre Arquitetura"></div>
+          <div class="swiper-slide"><img src="img/ApacheKafka.svg" alt="Livro sobre ApacheKafka"></div>
+        </div>
+
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+      </div>  
+    </section>
+    <section class="card">
+      <div class="card__descricao">
+        <div>
+          <h3 class="card__titulo">Talvez você também se interesse por...</h3>
+          <h2 class="card__tituloPrincipal">Angular 11 e Firebase</h2>
+          <p class="card__texto">Construindo uma aplicação integrada com a plataforma do Google.</p>
+        </div>
+        <img src="img/Angular.svg" alt="Angular">
+      </div>
+
+      <div class="card__botoes">
+        <ul class="card__botoes--lista">
+          <li class="card__botoes--lista--item"><img src="img/Favoritos.svg" alt="Favoritos"></li>
+          <li class="card__botoes--lista--item"><img src="img/Compras.svg" alt="Compras"></li>
+        </ul>
+        <a class="card__botoes--botao" href="#">Saiba mais</a>
+      </div>
+    </section>
+
+    <section class="carrossel">
+      <h3 class="carrossel__titulo">Mais Vendidos</h3>
+
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-wrapper">
+              <!-- Slides -->
+          <div class="swiper-slide"><img src="img/Acessibilidade.svg" alt="Livro sobre Acessibilidade"></div>
+          <div class="swiper-slide"><img src="img/Guia Front-end.svg" alt="Livro sobre Front-End"></div>
+          <div class="swiper-slide"><img src="img/Javascript.svg" alt="Livro sobre Javascript"></div>
+          <div class="swiper-slide"><img src="img/Arquitetura.svg" alt="Livro sobre Arquitetura"></div>
+          <div class="swiper-slide"><img src="img/ApacheKafka.svg" alt="Livro sobre ApacheKafka"></div>
+        </div>
+
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+      </div>  
+    </section>
+    <section class="card">
+      <div class="card__descricao">
+        <div>
+            <img class="card__estrela" src="img/Estrelinhas.svg" alt="">
+            <h3 class="card__titulo">Autora do Mês</h3>
+            <h2 class="card__tituloPrincipal">Juliana Agarikov</h2>
+          <p class="card__texto">Analista de sistemas e escritora, Juliana é especialista em Front-End. </p>
+        </div>
+        <img src="img/Premiada.svg" alt="Angular">
+      </div>
+
+      <div class="card__botoes">
+        <ul class="card__botoes--lista">
+          <li class="card__botoes--lista--item"><img src="img/Favoritos.svg" alt="Favoritos"></li>
+          <li class="card__botoes--lista--item"><img src="img/Compras.svg" alt="Compras"></li>
+        </ul>
+        <a class="card__botoes--botao" href="#">Saiba mais</a>
+      </div>
+    </section>  
+
+    <section class="topicos">
+      <h3 class="topicos__titulo">Tópicos visitados recentemente</h3>
+      <ul class="topicos__lista">
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">Android</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">Marketing Digital</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">Agile</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">Startups</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">HTML & CSS</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">Python</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">OO</a>
+        </li>
+        <li class="topicos__lista--item">
+          <a class="topicos__lista--link" href="#">Java</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contato">
+      <h4 class="contato__titulo">Fique por dentro das novidades!</h4>
+      <p class="contato__texto">Atualizações de e-books, novos livros, promoções e outros.</p>
+      <input type="email" class="contato__cadastrar" placeholder="Cadastre seu e-mail">
+
+    </section>
+
+    <hr/>
+
+    <footer class="rodape">
+      <h3 class="rodape__titulo">Grupo Alura</h3>
+    </footer>
+
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    
     
   </body>
 </html>

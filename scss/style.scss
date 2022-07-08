@@ -1,8 +1,11 @@
 $cor-de-fundo: #EBECEE;
 $cor-laranja: #EB9B00;
 $cor-branco: #FFFFFF;
+$cor-cinza-fundo-rodape: #F9F9F9;
 $fonte-poppins: "Poppins";
 $azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+$azul: #002F52;
+$preto: #000000;
 
 
 @mixin texto($size, $weight, $height) {
@@ -119,5 +122,174 @@ body {
             background: url("../img/Lupa.svg") no-repeat;
             background-position: 2.5em;
         }
+    }
+}
+
+.carrossel {
+
+    &__titulo {
+        @include texto(18px,700,27px);
+        color: $cor-laranja;
+        text-align: center;
+        padding: 1em 0 .5em 0;
+        background-color: $cor-branco;
+        text-transform: uppercase;
+    }
+}
+
+.swiper {
+
+    &-pagination {
+        position: initial;
+        margin: 0.5em 0;
+    }
+
+    &-slide img{
+        width: 100%;
+    }
+
+
+    &-button-prev {
+        display: none;
+    }
+
+    &-button-next {
+        display: none;
+    }
+}
+
+
+.card {
+    background-color: $cor-branco;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 1em;
+    padding: 0.5em;
+
+    &__descricao {
+        @include flex(space-between);
+    }
+
+    &__estrela {
+        padding: 0.5em 0 0 0;
+    }
+
+    &__titulo {
+        @include texto(16px,700,24px);
+        color: $cor-laranja;
+        padding: 0.5em 0 0 0;
+    }
+
+    &__tituloPrincipal {
+        @include texto(18px,700,27px);
+        color: $azul;
+        padding: .5em 0;
+    }
+
+    &__texto {
+        @include texto(14px,400,21px);
+        color: $preto;
+        padding: 0 .4em 0 0;
+    }
+
+    &__botoes {
+        @include flex(space-between);
+
+        &--lista {
+            @include flex(space-between);
+
+            &--item {
+                padding: 0 1em;
+            }
+        }
+
+        &--botao {
+            @include texto(16px,700,24px);
+            background-color: $cor-laranja;
+            color: $cor-branco;
+            padding: 1em 2.2em;
+            margin: 2em 0 1em 0;
+            text-decoration: none;
+            position: initial;
+        }
+    }
+
+}
+
+
+.topicos {
+    background: $azul-degrade;
+
+    &__titulo {
+        @include texto(16px,300,24px);
+        color: $cor-branco;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    &__lista {
+        @include flex(center);
+        flex-wrap: wrap;
+
+        &--item {
+            margin: 2em .5em;
+        }
+
+        &--link {
+            color: $cor-branco;
+            text-decoration: none;
+            background-color: $cor-laranja;
+            padding: 1em;
+        }
+    }
+}
+
+
+.contato {
+    background-color: $cor-branco;
+    padding: 1em;
+
+    &__titulo {
+        @include texto(18px,500,27px);
+        color: $azul;
+    }
+
+    &__texto {
+        @include texto(16px,300,24px);
+        color: $azul;
+    }
+
+    &__cadastrar {
+        @include texto(14px,400,21px);
+        color: $azul;
+        width:95%;
+        padding: 0.8em 0 0.8em 0.8em;
+        border: 1px solid $azul;
+        border-radius: 30px;
+        margin: 0.5em 0;
+
+        &::placeholder {
+            @include texto(14px,400,21px);
+            color: $azul;
+            padding: 0 0 0 4em;
+            text-align: left;
+            background: url("../img/Vector.svg") no-repeat;
+            background-position: 1.5em;
+        }
+    }
+}
+
+hr {
+    margin: 0;
+}
+
+.rodape {
+    padding: 1em;
+    background-color: $cor-cinza-fundo-rodape;
+
+    &__titulo {
+        @include texto(16px,400,24px);
+        color: $preto;
     }
 }
