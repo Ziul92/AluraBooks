@@ -3,9 +3,12 @@ $cor-laranja: #EB9B00;
 $cor-branco: #FFFFFF;
 $cor-cinza-fundo-rodape: #F9F9F9;
 $fonte-poppins: "Poppins";
+$fonte-josefin: "Josefin Sans";
 $azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
 $azul: #002F52;
 $preto: #000000;
+$cinza: #858585;
+$cinza-h4: #474646;
 
 
 @mixin texto($size, $weight, $height) {
@@ -19,6 +22,18 @@ $preto: #000000;
     justify-content: $espaço;
     align-items: center;
 }
+
+@mixin for-phone-only {
+    @media (max-width: 768px) {@content}
+};
+
+@mixin for-tablet-only {
+    @media (min-width: 768px) and (max-width: 1200px) {@content}
+};
+
+@mixin for-desktop-only {
+    @media (min-width: 1200px) {@content}
+};
 
 
 body {
@@ -38,6 +53,12 @@ body {
 
         &--imagem {
             padding: 1em;
+
+            &--transparente {
+                @include for-tablet-only() {
+                    display: none;
+                }
+            }
         }
 
         &--botao {
@@ -49,13 +70,17 @@ body {
         }
     }
     
-    &__menu {
+    &__menu--hamburguer {
         width: 24px;
         height: 24px;
         background-image: url(../img/Menu.svg);
         background-repeat: no-repeat;
         background-position: center;
         display: inline-block;
+
+        @include for-tablet-only {
+            display: none;
+        }
     }
 
     &__lista {
@@ -86,6 +111,49 @@ body {
             text-transform: uppercase;
         }
     }
+
+    &__titulo {
+        display: none;
+        @include for-tablet-only() {
+            display: block;
+            @include texto(30px,400,30px);
+            font-family: $fonte-josefin
+        }
+
+        &--negrito {
+            font-weight: 700;
+        }
+    }
+
+    &__navegacao {
+        display: none;
+        @include for-tablet-only() {
+            display: flex;
+            align-items: center;
+        }
+
+        &--item {
+            padding: 0 1em;
+            text-transform: uppercase;
+        }
+
+        &--link {
+            @include texto(16px,400,24px);
+            text-decoration: none;
+            color: $preto;
+        }
+
+        &--input {
+            display: none;
+
+            &:checked~.cabecalho__lista {
+                display: block;
+                width: auto;
+            }
+        }
+    }
+
+
 }
 
 .banner {
@@ -96,6 +164,10 @@ body {
 
     &__titulo {
         @include texto(18px,700,27px);
+
+        @include for-tablet-only() {
+            @include texto(36px,700,54px);
+        }
     }
 
     &__texto {
@@ -112,6 +184,9 @@ body {
         border: 1px solid $cor-branco;
         border-radius: 30px;
         margin: 0.5em 0;
+        @include for-tablet-only() {
+            width: 50%;
+        }
 
 
         &::placeholder {
@@ -121,6 +196,10 @@ body {
             text-align: center;
             background: url("../img/Lupa.svg") no-repeat;
             background-position: 2.5em;
+            @include for-tablet-only() {
+                @include texto(16px,400,24px);
+                background-position: 3em;
+            }
         }
     }
 }
@@ -134,27 +213,41 @@ body {
         padding: 1em 0 .5em 0;
         background-color: $cor-branco;
         text-transform: uppercase;
+        @include for-tablet-only() {
+            @include texto(26px,700,39px);
+        }
     }
 }
 
 .swiper {
+    @include for-tablet-only() {
+        width: 70%;
+    }
 
     &-pagination {
         position: initial;
         margin: 0.5em 0;
+        @include for-tablet-only() {
+            margin: 1em 0 2em 0;
+        }
     }
 
     &-slide img{
         width: 100%;
+        @include for-tablet-only() {}
     }
 
 
     &-button-prev {
         display: none;
+        @include for-tablet-only() {
+            display: block;
+            top: 60%;
+        }
     }
 
     &-button-next {
-        display: none;
+        @extend .swiper-button-prev
     }
 }
 
@@ -165,6 +258,10 @@ body {
     border-radius: 10px;
     margin: 1em;
     padding: 0.5em;
+    @include for-tablet-only() {
+            width: 50%;
+            margin: 2em auto;
+    }
 
     &__descricao {
         @include flex(space-between);
@@ -219,6 +316,7 @@ body {
 
 .topicos {
     background: $azul-degrade;
+    
 
     &__titulo {
         @include texto(16px,300,24px);
@@ -226,14 +324,21 @@ body {
         text-transform: uppercase;
         text-align: center;
         padding: 1em 0;
+        @include for-tablet-only() {
+            @include texto(24px,300,36px);
+        }
     }
 
     &__lista {
         @include flex(center);
         flex-wrap: wrap;
+        @include for-tablet-only() {
+            width: 70%;
+            margin: 0 auto;
+        }
 
         &--item {
-            margin: 2em .5em;
+            margin: 2em .5em 3em .5em;
         }
 
         &--link {
@@ -241,6 +346,9 @@ body {
             text-decoration: none;
             background-color: $cor-laranja;
             padding: 1em;
+            @include for-tablet-only() {
+                @include texto(24px,700,36px);
+            }
         }
     }
 }
@@ -249,15 +357,32 @@ body {
 .contato {
     background-color: $cor-branco;
     padding: 1em;
+    @include for-tablet-only() {
+        @include flex(center);
+    }
+
+    &__descricao {
+        @include for-tablet-only() {
+            margin: 1em 0;
+            width: 30%
+
+        }
+    }
 
     &__titulo {
         @include texto(18px,500,27px);
         color: $azul;
+        @include for-tablet-only() {
+            @include texto(24px,500,36px);
+        }
     }
 
     &__texto {
         @include texto(16px,300,24px);
         color: $azul;
+        @include for-tablet-only() {
+            margin: 1em 0;
+        }
     }
 
     &__cadastrar {
@@ -268,6 +393,10 @@ body {
         border: 1px solid $azul;
         border-radius: 30px;
         margin: 0.5em 0;
+        @include for-tablet-only() {
+            width: 30%;
+            margin-left: 2em;
+        }
 
         &::placeholder {
             @include texto(14px,400,21px);
@@ -287,9 +416,51 @@ hr {
 .rodape {
     padding: 1em;
     background-color: $cor-cinza-fundo-rodape;
+    @include for-tablet-only() {
+        @include flex(space-between);
+    }
 
     &__titulo {
         @include texto(16px,400,24px);
         color: $preto;
+        align-self: flex-start;
+        @include for-tablet-only() {
+            @include texto(24px,400,36px);
+        }
+    }
+
+    &__coluna {
+        display: none; 
+        @include for-tablet-only() {
+            @include flex(center);
+            flex-direction: column;
+            align-self: flex-start;
+        }
+
+        &--titulo {
+            @include texto(14px,400,21px);
+            color: $cinza;
+            align-self: flex-start;
+            text-transform: uppercase;
+        } 
+
+        &--lista {
+
+            &--item {
+                @include flex(none);
+                padding: 0.5em 0;
+                
+                &--link {
+                    @include texto(14px,400,21px);
+                    margin-left: 0.6em;
+                    color: $cinza-h4;
+                    text-decoration: none;
+                }
+            }
+
+
+        }
+
+
     }
 }
