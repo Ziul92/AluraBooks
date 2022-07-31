@@ -28,7 +28,7 @@ $cinza-h4: #474646;
 };
 
 @mixin for-tablet-only {
-    @media (min-width: 768px) and (max-width: 1200px) {@content}
+    @media (min-width: 768px) {@content}
 };
 
 @mixin for-desktop-only {
@@ -44,28 +44,58 @@ body {
 .cabecalho {
     @include flex(space-between);
     position: relative;
+    margin: 0 1em;
 
     
     &__container {
         display: flex;
         align-items: center;
 
+        &--link {
+            @include flex(space-between);
+            text-decoration: none;
+
+            &--imagem {
+                padding: 1em;
+    
+                &--transparente {
+                    @include for-tablet-only() {
+                        display: none;
+                    }
+                }
+            }
+
+            &--texto {
+                display: none;
+                @include for-desktop-only() {
+                    display: block;
+                    @include texto(20px,400,30px);
+                    color: $preto;
+
+                }
+            }
+            
+        }
 
         &--imagem {
             padding: 1em;
-
-            &--transparente {
-                @include for-tablet-only() {
-                    display: none;
-                }
-            }
         }
+
 
         &--botao {
             display: none;
 
             &:checked~.cabecalho__lista {
                 display: block;
+            }
+
+            &:checked~ .cabecalho__container--rotulo {
+                background: $azul-degrade;
+
+                &> .cabecalho__menu--hamburguer {
+                    background-image: url(../img/Menu\ Aberto.svg);
+
+                }
             }
         }
     }
@@ -100,6 +130,14 @@ body {
         &--item {
             @include texto(16px,400,24px);
             padding: 1em;
+
+            &:hover {
+                background: $azul-degrade;
+
+                &>.cabecalho__lista--links {
+                    -webkit-text-fill-color: $cor-branco;
+                }
+            }
         }
 
         &--links {
@@ -131,9 +169,12 @@ body {
             display: flex;
             align-items: center;
         }
+        @include for-desktop-only() {
+            margin-right: auto;
+        }
 
         &--item {
-            padding: 0 1em;
+            padding: 1.5em 1em;
             text-transform: uppercase;
         }
 
@@ -149,6 +190,11 @@ body {
             &:checked~.cabecalho__lista {
                 display: block;
                 width: auto;
+            }
+
+            &:checked~.cabecalho__navegacao--rotulo {
+                background: $azul-degrade;
+                color: $cor-branco;
             }
         }
     }
@@ -205,7 +251,6 @@ body {
 }
 
 .carrossel {
-
     &__titulo {
         @include texto(18px,700,27px);
         color: $cor-laranja;
@@ -217,11 +262,23 @@ body {
             @include texto(26px,700,39px);
         }
     }
+
+    &__divisao {
+        @include for-desktop-only() {
+            display: flex;
+            align-items: center;
+            margin: 3em 3em;
+        }
+    }
 }
 
 .swiper {
     @include for-tablet-only() {
         width: 70%;
+    }
+
+    @include for-desktop-only() {
+        width: 50%;
     }
 
     &-pagination {
@@ -230,11 +287,13 @@ body {
         @include for-tablet-only() {
             margin: 1em 0 2em 0;
         }
+        @include for-desktop-only() {
+            margin: 1em 0;
+        }
     }
 
     &-slide img{
         width: 100%;
-        @include for-tablet-only() {}
     }
 
 
@@ -262,6 +321,9 @@ body {
             width: 50%;
             margin: 2em auto;
     }
+    @include for-desktop-only() {
+        margin-left: 2em;
+    }
 
     &__descricao {
         @include flex(space-between);
@@ -275,6 +337,9 @@ body {
         @include texto(16px,700,24px);
         color: $cor-laranja;
         padding: 0.5em 0 0 0;
+        @include for-desktop-only() {
+            @include texto(32px,700,48px)
+        }
     }
 
     &__tituloPrincipal {
@@ -287,6 +352,9 @@ body {
         @include texto(14px,400,21px);
         color: $preto;
         padding: 0 .4em 0 0;
+        @include for-desktop-only() {
+            font-size: 16px;
+        }
     }
 
     &__botoes {
@@ -326,6 +394,9 @@ body {
         padding: 1em 0;
         @include for-tablet-only() {
             @include texto(24px,300,36px);
+        }
+        @include for-desktop-only() {
+            @include texto(32px,300,48px)
         }
     }
 
@@ -419,6 +490,9 @@ hr {
     @include for-tablet-only() {
         @include flex(space-between);
     }
+    @include for-desktop-only() {
+        padding: 3em 2em;
+    }
 
     &__titulo {
         @include texto(16px,400,24px);
@@ -435,6 +509,10 @@ hr {
             @include flex(center);
             flex-direction: column;
             align-self: flex-start;
+        }
+        @include for-desktop-only() {
+            border-left: 1px solid $cinza;
+            padding-left: 1em;
         }
 
         &--titulo {
@@ -456,6 +534,10 @@ hr {
                     color: $cinza-h4;
                     text-decoration: none;
                 }
+            }
+
+            &--transparente {
+                visibility: hidden;
             }
 
 
